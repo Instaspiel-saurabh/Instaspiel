@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+
+    <title>::INSTASPIEL::</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">INSTASPIEL</a>
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button> -->
+       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float: right;">
+         <ul class="list-inline header-top usertopbox">
+                                      <li class="dropdown">
+                                          <button (click) = "logout_user()" class="view btn">
+                                            Logouthh
+                                          </button>
+                                          <ul class="dropdown-menu">
+                                              <li>
+                                                  <div class="navbar-content topboxpad">
+                                                      <span>Rushal</span>
+                                                      <p class="text-muted small">
+                                                          rushal@instaspiel.com
+                                                      </p>
+                                                      <div class="divider">
+                                                      </div>
+                                                      <button href="index.html" class="view btn-sm active" (click)="logout()">Logout</button>
+                                                  </div>
+                                              </li>
+                                          </ul>
+                                      </li>
+                                  </ul>
+              </div>
+      </nav>
+  </header>
+
+
+<main>
+<div class="container">
+       <div class="card-body martop20px paddleftright0px">
+    <h4 class="card-title">Project List
+
+<a id="add__new__list" routerLink="/createuser"  class="btn btn-success pull-right" ><i class="fas fa-plus"></i> Add Project</a>
+    </h4>
+
+  </div>
+    <div class="card">
+
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">S. No.</th>
+                <th scope="col">Company Name</th>
+                <th scope="col">Url's</th>
+                <th scope="col">Manage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let post of posts;let i=index ">
+                <th scope="row">{{i+1}}</th>
+                <td>{{post.name}}</td>
+
+                <td>{{post.url}}</td>
+                <td  width="25%">
+                    <button class="btn btn-sm btn-secondary" id="myBtn" (click)="editcompany(post.id)">Edit</button>
+                    <a class="btn btn-sm btn-secondary" href="user.html">Manage user</a>
+                    <button class="btn btn-sm btn-danger" (click)="deleteComapny(post.id)">Delete</button>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+    </div>
+    <!-- Large modal -->
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="text-center">
+            <h4 class="popuphead">Add Company Detail</h4>
+          </div>
+            <div class="col-sm-12">
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-control" name="company_name" id="listname" placeholder="Enter Company Name">
+            </div>
+
+
+           <div class="form-group text-center">
+             <button type="submit" class="btn btn-block btn-success">Add Detail</button>
+          </div>
+        </form>
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+</main>
+<!---->
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" (click)="closepopup('myModal')" >&times;</span>
+    <div>
+      <form (submit) = "addCompany($event)">
+        <input type="hidden" [(ngModel)]="id" name="id" >
+        <br>
+        Company Name:<br>
+        <input type="text" [(ngModel)]="company_name" name="company_name">
+        <br>
+        Url:<br>
+        <input type="text" [(ngModel)]="company_url" name="company_url" >
+        <br><br>
+        <input type="submit" value="Submit" >
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<!---->
+<footer>
+</footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>
+      // Get the modal
+      var modal = document.getElementById('myModal');
+
+      // Get the button that opens the modal
+      var btn = document.getElementById("myBtn");
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks the button, open the modal
+      btn.onclick = function() {
+          modal.style.display = "block";
+      }
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+          modal.style.display = "none";
+      }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+
+</html>

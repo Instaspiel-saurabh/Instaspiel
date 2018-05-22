@@ -1,0 +1,23 @@
+{
+  "products": [
+    { 
+      "id": 1, 
+      "title": "json-server", 
+     "author": "typicode"
+    },
+    { 
+      "id": 2, 
+      "title": "json-servergfh", 
+     "author": "typicode"
+    },
+    { 
+      "id": 3, 
+      "title": "json-serverghjg", 
+     "author": "typicode"
+    }
+   
+  
+
+  ]
+
+}
